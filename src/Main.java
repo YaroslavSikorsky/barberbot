@@ -11,7 +11,7 @@ public class Main {
 		jura.addAppointment(appointment);
 		anton.addAppointment(appointment);
 
-		System.out.println(jura.getName() + " vstre4a c " + anton.getName() + " na " + appointment.getDate() + " " + appointment.getTime() + ".");
+		System.out.println(jura.toString() + anton.toString() + appointment.toString());
 
 
 	}

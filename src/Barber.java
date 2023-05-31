@@ -7,7 +7,7 @@ public class Barber {
 
 	public Barber(String name) {
 		this.name = name;
-		this.appointments=new ArrayList<>();
+		this.appointments = new ArrayList<>();
 	}
 
 	public String getName() {
@@ -32,5 +32,11 @@ public class Barber {
 
 	public void removeAppointment(Appointment appointment) {
 		appointments.remove(appointment);
+	}
+
+	@Override
+	public String toString() {
+		return name + " vstrecha s ";
+
 	}
 }

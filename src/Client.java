@@ -44,4 +44,10 @@ public class Client {
 		appointments.remove(appointment);
 	}
 
+	@Override
+	public String toString() {
+		return name;
+
+	}
+
 }

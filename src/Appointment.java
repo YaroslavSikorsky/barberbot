@@ -43,4 +43,10 @@ public class Appointment {
 		this.client = client;
 	}
 
+	@Override
+	public String toString() {
+		return ", data " + date + ", vremya " + time;
+
+	}
+
 }
