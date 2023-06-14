@@ -39,4 +39,8 @@ public class Barber {
 		return name + " vstrecha s ";
 
 	}
+
+	public void createSchedule(){
+
+	}
 }
