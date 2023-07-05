@@ -1,28 +1,29 @@
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 
 public class TimeSlot {
-	private Date date;
+	private LocalDateTime localDateTime;
 	private int time;
 	private boolean booked;
 
-	public TimeSlot(Date date, int time) {
-		this.date = date;
+	public TimeSlot(LocalDateTime localDateTime, int time) {
+		this.localDateTime = localDateTime;
 		this.time = time;
 		this.booked = false;
 
 	}
 
-	public Date getDate() {
-		return date;
+	public LocalDateTime getDate() {
+		return localDateTime;
 	}
 
 	public int getTime() {
 		return time;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate(LocalDateTime localDateTime) {
+		this.localDateTime = localDateTime;
 	}
 
 	public void setTime(int time) {
@@ -34,13 +35,18 @@ public class TimeSlot {
 	}
 
 	public void bookTime() {
-		this.booked = true;
+		if (this.booked == true) {
+			System.out.println("This time is busy");
+		} else {
+			this.booked = true;
+			System.out.println("You booked a time");
+		}
 	}
 
 	@Override
 	public String toString() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("E dd.MM.yyyy hh:mm a");
-		String dateStr = dateFormat.format(date);
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM.dd.yy HH:mm");
+		String dateStr = dtf.format(localDateTime);
 		return dateStr + " - " + time + " minutes " + (booked ? "BOOKED" : "AVAILABLE");
 	}
 
@@ -49,7 +55,7 @@ public class TimeSlot {
 		if (obj == null) return false;
 		if (!(obj instanceof TimeSlot)) return false;
 		TimeSlot ts = (TimeSlot) obj;
-		if (this.date.equals(ts.date) && this.time == ts.time) {
+		if (this.localDateTime.equals(ts.localDateTime) && this.time == ts.time) {
 			return true;
 		}
 		return false;
